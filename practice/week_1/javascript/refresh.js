@@ -4,8 +4,9 @@ var mySecondVariable = null;
 // let and const
 let myRealFirstVar = true;
 
-// const cannot be changed once value is set, one confusion is that you can update the objects within const (which is allowed).
-const MYFIRSTCONST = 10;
+// const cannot be changed once value is set, one confusion is that you can update the objects within const (which is allowed).You need to initialize all const variables.
+
+//const MYFIRSTCONST;
 
 const MYCONSTOBJECT = {};
 MYCONSTOBJECT.firstArgument = "something";
