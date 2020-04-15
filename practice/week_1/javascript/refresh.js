@@ -49,3 +49,69 @@ function myFunction(myVar, myVar2, myVar3) {
 }
 
 // console.log(myVar);
+
+
+// camparitors, comparison symbols
+// == vs =
+// = is for assignment
+// == compares both sides and create a boolean. If the same value, it becomes true, if is not the same value it becomes false.
+
+// 19 == 30
+
+// === compares both sides for value AND data type. if either of these are not the same, it is false.
+
+100 == "100";
+console.log(10 == "10");
+
+100 === "100";
+console.log(10 === "10");
+
+// < and >, if one value is larger than the other side, then it becomes true.
+
+// <= >=, same as above but allows to be equal.
+// <== >==, same as above but must be the same datatype. (not available in JS)
+
+// != Should NOT be the same on both sides TO BE TRUE.
+// !== same as above but must be the same datatype.
+
+"t" < 10;
+20 < 10;
+74 < 10;
+
+"hello" 
+ "hello";
+"t" != 10;
+"t" != 74;
+
+true != false;
+
+// Careful with the following. Both are true, and datatype comparison is situational.
+console.log("t" !== 10);
+console.log(74 !== 10);
+
+// Mathematical Operators
+// +
+// -
+// *
+// /
+// %
+
+// 1 + 1, 1 - 1, 1 * 1, 1 / 1, 1 % 1;
+
+// --
+// ++
+100--; // 99
+100 - 1;
+
+100++; // 101
+100 + 1;
+
+
+// +=
+// -=
+// *=
+// /=
+var something = 10;
+
+something += 10;
+something = something + 10;
