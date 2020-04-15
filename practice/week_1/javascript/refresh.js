@@ -115,3 +115,20 @@ var something = 10;
 
 something += 10;
 something = something + 10;
+
+// Logical Operators.
+
+// || && !
+
+// ||
+true || false;
+
+// &&
+true && true; // true
+true && false; // false
+!true // false
+!false // true
+!!false;
+
+true && false && true; // false
+true || false || true; // true
