@@ -1,11 +1,14 @@
 // first argument is what to run, second value is how long to wait for in milliseconds.
 
-function dpSetTimeout(instructions, timeoutLength, count = 1) {
+function dpSetTimeout(instructions, timeoutLength, count = 1, pause = 0) {
 
     if (typeof instructions === "function" && typeof timeoutLength === "number") {
 
         for (let i = 0; i < count; i++) {
-            setTimeout(instructions, timeoutLength);
+
+            let pauseLength = pause * i;
+
+            setTimeout(instructions, timeoutLength + pauseLength);
 
         }
 
@@ -22,7 +25,8 @@ function mySpecialFunction() {
     console.log("running something here");
 }
 
-dpSetTimeout(mySpecialFunction, 2000, 3);
+//HW: allow the dpSetTimeout to handle negative numbers.
+dpSetTimeout(mySpecialFunction, -2000, -6, -1000);
 
 
 // dpSetTimeout(function () {
