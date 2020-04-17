@@ -2,6 +2,21 @@
 
 function dpSetTimeout(instructions, timeoutLength, count = 1, pause = 0) {
 
+    // seperated out from line 20 so we don't crowd the if conditional statement. Generally would be added into that if statement.
+    if (typeof timeoutLength === "number" && typeof count === "number" && typeof pause === "number") {
+
+    } else {
+        return 1;
+    }
+    
+    if (timeoutLength < 0) {
+        timeoutLength = 0;
+    }
+    
+    if (pause < 0) {
+        pause = 0;
+    }
+
     if (typeof instructions === "function" && typeof timeoutLength === "number") {
 
         for (let i = 0; i < count; i++) {
@@ -26,7 +41,7 @@ function mySpecialFunction() {
 }
 
 //HW: allow the dpSetTimeout to handle negative numbers.
-dpSetTimeout(mySpecialFunction, -2000, -6, -1000);
+dpSetTimeout(mySpecialFunction, "thousand", -6, "thousand");
 
 
 // dpSetTimeout(function () {
