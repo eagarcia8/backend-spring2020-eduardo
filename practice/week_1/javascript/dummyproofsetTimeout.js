@@ -1,4 +1,4 @@
-// first argument is what to run, second value is how long to wait for in milliseconds.
+// setTimeout: first argument is what to run, second value is how long to wait for in milliseconds.
 
 function dpSetTimeout(instructions, timeoutLength, count = 1, pause = 0) {
 
@@ -17,6 +17,7 @@ function dpSetTimeout(instructions, timeoutLength, count = 1, pause = 0) {
         pause = 0;
     }
 
+    // Tests to make sure that what we have in our parameters can be used in the true code block.
     if (typeof instructions === "function" && typeof timeoutLength === "number") {
 
         for (let i = 0; i < count; i++) {
@@ -26,22 +27,23 @@ function dpSetTimeout(instructions, timeoutLength, count = 1, pause = 0) {
             setTimeout(instructions, timeoutLength + pauseLength);
 
         }
-
+        //return a 0 if all is good.
         return 0;
     } else {
+        //return a 1 if something happened, generally "failed."
         return 1;
     }
 
 }
 
 
-
+// An example definition of a function that we pass to dpSetTimeout to run.
 function mySpecialFunction() {
     console.log("running something here");
 }
 
 //HW: allow the dpSetTimeout to handle negative numbers.
-dpSetTimeout(mySpecialFunction, "thousand", -6, "thousand");
+dpSetTimeout(mySpecialFunction, 2000, 6, 1000);
 
 
 // dpSetTimeout(function () {
@@ -60,5 +62,5 @@ dpSetTimeout(mySpecialFunction, "thousand", -6, "thousand");
 
 
 
-
+// Tells us when the program "ended".
 console.log("The script has finished!");
