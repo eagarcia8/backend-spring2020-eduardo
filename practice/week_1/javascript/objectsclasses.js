@@ -36,22 +36,34 @@ employee2.address.zip;
 
 class Car {
     //static version = "100";
-    constructor(valueOfAge) {
+    constructor(age, valueOfMileage, valueOfColor, valueOfHP) {
         //bonus: figure out what non-this variables go to.
-        this.age = valueOfAge;
+        this.age = age;
+        this.mileage = valueOfMileage;
+        this.hp = valueOfHP;
+        this.color = valueOfColor;
+    }
+
+    isWorking() {
+        console.log("The car is working and currently is " + this.age + " years old.")
     }
 }
 
+// same thing as the class, value cannot be changed and may be different to other objects: let myCarExample = {age: 100};
+
 let someNumber = 190;
 
-let myFirstCar = new Car(50);
+let myFirstCar = new Car(50, 600000, "brown", 25);
 let mySecondCar = new Car(someNumber);
 let soldCar = new Car(12);
 
 console.log(Car.version);
 
-Math.random()
+
+// If a function belongs to a class, its called a method.
+Math.random();
+
 
 // let myFirstCar = {};
 
-console.log(myFirstCar, mySecondCar, soldCar);
+console.log(Object.getOwnPropertyNames(myFirstCar));
