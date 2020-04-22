@@ -20,15 +20,22 @@ if (doesFileExist) {
     // ... and convert it to an Object ...
     persistentObject = JSON.parse(existingJSON);
     console.log(`Object converted from JSON:`);
-    console.log(persistentObject);
 
 } else {
 
+    // .. create a new file if it doesn't exist ...
     console.log("File does not exist, creating new file");
-    fs.writeFileSync(filename, "{}", "utf8");
+    fs.writeFileSync(filename, `{"numbersList": []}`, "utf8");
+
+    // ... load new object for our persistentObject
+    persistentObject = {numbersList: []};
 
 }
 
+persistentObject.numbersList.push( process.argv[2] );
 
-fs.writeFile();
-fs.writeFileSync();
+let data = JSON.stringify(persistentObject);
+
+fs.writeFileSync(filename, data, "utf8");
+
+console.log(persistentObject);
