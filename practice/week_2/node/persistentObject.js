@@ -31,11 +31,38 @@ if (doesFileExist) {
     persistentObject = {numbersList: []};
 
 }
+// The following makes sure that we have something in the arguments to store.
+let valueToAdd = process.argv[2];
 
-persistentObject.numbersList.push( process.argv[2] );
+if (valueToAdd === undefined) {
+    console.log("You need to provide a number after the filename to add to the list of numbers!");
+    return;
+} else if (isNaN(valueToAdd)) {
+    console.log("The value you provided is not a number!");
+    return;
+} else {
 
-let data = JSON.stringify(persistentObject);
+    valueToAdd = parseInt(valueToAdd);
+    // Add the number provided in the terminal and push it into the array held by the Object.
+    persistentObject.numbersList.push( valueToAdd );
 
-fs.writeFileSync(filename, data, "utf8");
+    // Convert the persistentObject to a JSON string.
+    let data = JSON.stringify(persistentObject);
 
-console.log(persistentObject);
+    // "Replace" the JSON file with with a newer version based on the object on line 39.
+    fs.writeFileSync(filename, data, "utf8");
+
+
+    console.log(persistentObject);
+
+}
+
+
+
+
+
+
+
+
+
+
