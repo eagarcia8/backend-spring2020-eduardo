@@ -1,0 +1,14 @@
+{
+  "name": "secondnodeproject",
+  "version": "0.25.0",
+  "description": "Second run of creating Node projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eduardo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
