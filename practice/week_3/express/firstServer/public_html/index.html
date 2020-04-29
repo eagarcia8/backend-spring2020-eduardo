@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>The HTML5 Herald</title>
+  <title>First Node "App"</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
@@ -22,6 +22,8 @@
     }
   </style>
 
+
+<!-- We go to the internet and get the jQuery file to run in our webpage. -->
 <script
   src="https://code.jquery.com/jquery-3.5.0.min.js"
   integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
@@ -35,14 +37,31 @@
     <input type="text" id="age" />
   </form>
 
-  <button>Submit Age Number To Server</button>
+  <button id="submit">Submit Age Number To Server</button>
 
 
   <script>
     // CODE AFTER THIS IS JAVASCRIPT
     
+    // When the "document" (which is the HTML code) is ready, then run the function provided inside the ready function. This makes sure jQuery waits until the webpage is ready.
     $(document).ready(() => {
-      console.log("jQuery is Working");
+
+      // Select the Submit button and attach a click handler/listener.
+      $("#submit").click(() => {
+
+        // Get the value of the text box and store it in the ageValue variable.
+        let ageValue = $("#age").val();
+
+        // console.log("The value for age is " + ageValue);
+        
+        // AJAX POST CALL using jQuery
+        // First argument is where to send it to, second argument is what to send, third argument is what to do when the server has responded.
+        $.post("http://localhost:3000/", {}, (data, error) => {
+          console.log("We have sent something AND the server has responded!");
+        });
+
+      });
+      
     });
 
     // CODE BEFORE THIS IS JAVASCRIPT
