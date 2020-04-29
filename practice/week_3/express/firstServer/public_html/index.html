@@ -8,11 +8,71 @@
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
- 
+  <style>
+    body {
+      font-size: 48px;
+    }
+
+    input {
+      font-size: 48px;
+    }
+
+    button {
+      font-size: 48px;
+    }
+  </style>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.0.min.js"
+  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+  crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-  <h1>Hello World!</h1>
+  <form>
+    <label for="age">Enter Your Age</label><br />
+    <input type="text" id="age" />
+  </form>
+
+  <button>Submit Age Number To Server</button>
+
+
+  <script>
+    // CODE AFTER THIS IS JAVASCRIPT
+    
+    $(document).ready(() => {
+      console.log("jQuery is Working");
+    });
+
+    // CODE BEFORE THIS IS JAVASCRIPT
+  </script>
 </body>
 </html>
+
+
+
+
+
+<!-- 
+
+"Classic Syntax"
+function (time, space) {
+  let spacetime = time * space;
+  return spacetime;
+}
+
+"Fat Arrow Syntax"
+(time, space) => {
+  let spacetime = time * space;
+  return spacetime;
+}
+
+(time) => {return time * 10;}
+
+"Shorthand Fat Arrow Syntax" only available to single argument with single statement
+time => return time * 10
+
+
+
+-->

@@ -8,16 +8,14 @@ const app = express();
 const http = require("http").Server(app);
 
 // The port we are going to listen on.
-const port = 8080;
+const port = 3000;
 
 // Tells HTTP what port to listen to.
 http.listen(port);
 
 // Express Routes
 // express.static("./public_html") -> used to tell Express that it is a directory/folder.
-
-app.use("/client", express.static("./public_html") );
-
+app.use("/", express.static("./public_html"));
 
 
 // Signify Express Server is running.
