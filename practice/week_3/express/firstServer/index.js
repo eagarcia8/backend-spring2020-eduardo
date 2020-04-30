@@ -17,6 +17,9 @@ http.listen(port);
 // express.static("./public_html") -> used to tell Express that it is a directory/folder.
 app.use("/", express.static("./public_html"));
 
+app.post("/submitAge", (request, response) => {
+    console.log(request.body);
+});
 
 // Signify Express Server is running.
 console.log(`Express is now running on port ${port}`);
