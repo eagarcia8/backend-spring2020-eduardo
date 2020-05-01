@@ -32,6 +32,8 @@ app.post("/submitAge", (request, response) => {
     }
 
     response.send(dataToSendBackObject);
+    // Respond that everything is okay but send no data back.
+    response.sendStatus(200);
 });
 
 // Signify Express Server is running.
