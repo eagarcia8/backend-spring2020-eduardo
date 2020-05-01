@@ -1,6 +1,24 @@
 // Including the Express package for our script.
 const express = require("express");
+// We need body-parser so we can read data from the front-end.
 const bodyParser = require("body-parser");
+// We use FS so we can read/write files.
+const fs = require("fs");
+const _ = require("lodash");
+const filename = "history.json";
+let tempAgeObject = {
+    "historyOfSubmissions": []
+};
+
+if (fs.existsSync(filename)) {
+    let historyString = fs.readFileSync(filename, "utf8");
+    tempAgeObject = JSON.parse(historyString);
+} else {
+    dataToSave = JSON.stringify(tempAgeObject);
+    fs.writeFileSync(filename, dataToSave, "utf8");
+}
+
+
 
 // Run the Express server.
 const app = express();
@@ -27,13 +45,18 @@ app.post("/submitAge", (request, response) => {
     console.log(request.body);
     let canDrink = (request.body.age >= 21);
 
+    // Adds the data we just got to the temporary Object, converts the object to JSON, and saves the new JSON to file that is described in filename variable..
+    tempAgeObject.historyOfSubmissions.push(request.body);
+    let stringToWrite = JSON.stringify(tempAgeObject);
+    fs.writeFileSync(filename, stringToWrite, "utf8");
+
+
     let dataToSendBackObject = {
         "canDrink": canDrink
     }
 
     response.send(dataToSendBackObject);
     // Respond that everything is okay but send no data back.
-    response.sendStatus(200);
 });
 
 // Signify Express Server is running.

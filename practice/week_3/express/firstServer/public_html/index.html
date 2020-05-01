@@ -34,7 +34,9 @@
 <body>
   <form>
     <label for="age">Enter Your Age</label><br />
-    <input type="text" id="age" />
+    <input type="text" id="age" /><br />
+    <label for="name">Enter Your Name</label><br />
+    <input type="text" id="name" />
   </form>
 
   <button id="submit">Submit Age Number To Server</button>
@@ -51,8 +53,9 @@
       // Select the Submit button and attach a click handler/listener.
       $("#submit").click(() => {
 
-        // Get the value of the text box and store it in the ageValue variable.
+        // Get the value of the text box and store it in the ageValue/nameValue variable.
         let ageValue = $("#age").val();
+        let nameValue = $("#name").val();
 
         // Test the input for valid number.
         ageValue = parseInt(ageValue);
@@ -61,7 +64,8 @@
 
           // console.log("The value for age is " + ageValue);
           let dataObject = {
-            "age": ageValue
+            "age": ageValue,
+            "name": nameValue
           };
           
           // AJAX POST CALL using jQuery
