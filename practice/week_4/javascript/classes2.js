@@ -29,6 +29,13 @@ class Car extends Vehicle {
 
     getCurrentFuel() {
         console.log(`${this.manufacturer} ${this.model} has a total of ${this.currentTankGallons} gallons of gas left.`);
+
+        return this.currentTankGallons;
+    }
+
+    setCurrentFuel(fuelValue) {
+
+        this.currentTankGallons = fuelValue;
     }
 
     refuel(gallons) {
@@ -59,20 +66,29 @@ class Car extends Vehicle {
         } else {
             console.log(`${this.manufacturer} ${this.model} cannot go that far! It doesn't have enough fuel.`);
         }
+
+    }
+
+    // Homework: Allow me to customize how many gallons I want to transfer. Currently I can only transfer 1 gallon as it is written within the code.
+    refuelUsing(car) {
+        
+        if (car.getCurrentFuel() > 2) {
+
+            if (this.getCurrentFuel() > 0) {
+                console.log(`${this.manufacturer} ${this.model} already has fuel, we don't need to take ${car.manufacturer} ${car.model}'s fuel!`);
+            } else {
+                this.setCurrentFuel(1);
+                car.setCurrentFuel(car.getCurrentFuel() - 1);
+                console.log(`${this.manufacturer} ${this.model} has recieved 1 gallon of fuel from ${car.manufacturer} ${car.model}.`); 
+            }
+
+        }
+
     }
 
 }
 
-class ElectricCar extends Vehicle {
-    constructor() {
-        super();
-        this.seats = null;
-        this.capacityKWH = null;
-        this.vin = null;
-        this.brand = null;
-        this.MPKW = null;
-    }
-}
+
 
 // Fill out a "functional" airplane class and create 2 Airplane object with methods on them being used.
 class Airplane extends Vehicle {
@@ -110,4 +126,12 @@ let secondCar = new Car("BMW", "328i", "blue", "gasoline", 15, 20, 110, 4);
 console.log(secondCar);
 
 secondCar.travel(50);
+secondCar.getCurrentFuel();
+
+
+secondCar.setCurrentFuel(0);
+
+secondCar.refuelUsing(firstCar);
+
+firstCar.getCurrentFuel();
 secondCar.getCurrentFuel();
