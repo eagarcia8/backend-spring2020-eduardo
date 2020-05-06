@@ -56,9 +56,13 @@ app.post("/newNote", (request, response) => {
     data.notes.push(newNoteObject);
     // data.notes.push(new Note(request.body.note, request.body.author));
 
+    // SAVE DATA TO FILE
+
     let dataToSend = {
         saveStatus: 0
     }
 
-    response.sendData(dataToSend);
+    console.log(data);
+
+    response.send(dataToSend);
 });

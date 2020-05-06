@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Todo "App"</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <style></style>
+
+<!-- We go to the internet and get the jQuery file to run in our webpage. -->
+<script
+  src="https://code.jquery.com/jquery-3.5.0.min.js"
+  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+  crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+  <script>
+      $(document).ready(() => {
+
+        let objectToSend = {
+            note: "Do something.",
+            author: "Nick"
+        }
+          
+        $.post("http://localhost:3000/newNote", objectToSend, (dataToGet) => {
+            console.log(dataToGet);
+        });
+
+      });
+  </script>
+</body>
+</html>
