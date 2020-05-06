@@ -1,0 +1,10 @@
+Object to recieve from front-end for /newNote
+{
+	note: String (The note text to save)
+	author: Null or String (The user or owner of the note)
+}
+
+Object to send to front-end for /newNote
+{
+	saveStatus: Number (0 for saved, 1 for error)
+}

@@ -22,6 +22,8 @@ let data = {
     "notes": []
 }
 
+// Just a Comment
+
 if (fs.existsSync(filename)) {
     const read = fs.readFileSync(filename, "utf8");
     data = JSON.parse(read);
@@ -30,3 +32,22 @@ if (fs.existsSync(filename)) {
     fs.writeFileSync(filename, converted, "utf8");
 }
 // Finished setting up save file.
+
+// Todo Routes
+app.use("/", express.static("public_html/") );
+
+app.post("/newNote", (request, response) => {
+    let recievedData = request.body;
+
+    let newNoteObject = {
+        note: recievedData.note,
+        author: recievedData.author,
+        completed_status: false,
+        create_date: Date.now()
+    };
+
+    data.notes.push(newNoteObject);
+
+
+
+});
