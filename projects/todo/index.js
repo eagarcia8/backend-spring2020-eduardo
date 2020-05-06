@@ -33,21 +33,32 @@ if (fs.existsSync(filename)) {
 }
 // Finished setting up save file.
 
+// Class definition for notes
+
+class Note {
+    constructor(note, author) {
+        this.note = note;
+        this.author = author;
+        this.completed_status = false;
+        this.create_date = Date.now();
+    }
+}
+
+// End Class definition for notes
+
 // Todo Routes
 app.use("/", express.static("public_html/") );
 
 app.post("/newNote", (request, response) => {
     let recievedData = request.body;
-
-    let newNoteObject = {
-        note: recievedData.note,
-        author: recievedData.author,
-        completed_status: false,
-        create_date: Date.now()
-    };
+    let newNoteObject = new Note(recievedData.note, recievedData.author);
 
     data.notes.push(newNoteObject);
+    // data.notes.push(new Note(request.body.note, request.body.author));
 
+    let dataToSend = {
+        saveStatus: 0
+    }
 
-
+    response.sendData(dataToSend);
 });
