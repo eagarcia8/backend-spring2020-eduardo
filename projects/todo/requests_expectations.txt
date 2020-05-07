@@ -8,3 +8,40 @@ Object to send to front-end for /newNote
 {
 	saveStatus: Number (0 for saved, 1 for error)
 }
+
+Object to recieve from front-end for /readNotes
+{
+}
+
+Object to send to front-end for /readNotes
+{
+	notes: Array
+}
+
+Object to recieve from front-end for /deleteNote
+{
+	create_date: Number,
+	author: String
+}
+
+Object to send to front-end for /deleteNote
+{
+	deleteStatus: Number (0 for successfully deleted, 1 for not found, 2 for found but not deleted)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

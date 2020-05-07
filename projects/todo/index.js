@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
+
 const http = require("http").Server(app);
 const port = 3000;
 http.listen(port);
@@ -20,9 +21,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 const filename = "./users/default_user.json";
 let data = {
     "notes": []
-}
-
-// Just a Comment
+};
 
 if (fs.existsSync(filename)) {
     const read = fs.readFileSync(filename, "utf8");
@@ -34,7 +33,6 @@ if (fs.existsSync(filename)) {
 // Finished setting up save file.
 
 // Class definition for notes
-
 class Note {
     constructor(note, author) {
         this.note = note;
@@ -43,12 +41,15 @@ class Note {
         this.create_date = Date.now();
     }
 }
-
 // End Class definition for notes
 
 // Todo Routes
+// http://localhost:3000/coolFilesWebpage
+// app.use("/coolFilesWebpage", express.static("file_library/") );
 app.use("/", express.static("public_html/") );
 
+
+// Route for new notes.
 app.post("/newNote", (request, response) => {
     let recievedData = request.body;
     let newNoteObject = new Note(recievedData.note, recievedData.author);
@@ -56,13 +57,63 @@ app.post("/newNote", (request, response) => {
     data.notes.push(newNoteObject);
     // data.notes.push(new Note(request.body.note, request.body.author));
 
-    // SAVE DATA TO FILE
+    // Save data object to json file.
+    let converted = JSON.stringify(data);
+    fs.writeFileSync(filename, converted, "utf8");
 
+    // Building object to send back.
     let dataToSend = {
         saveStatus: 0
     }
 
-    console.log(data);
-
     response.send(dataToSend);
+});
+
+// Route for updating a specific note.
+
+// Route for deleting a specific note.
+app.post("/deleteNote", (req, res) => {
+    let noteToDelete = req.body;
+
+    // Combine the create date number and author to create a unique "id".
+    let noteID = noteToDelete.create_date + noteToDelete.author;
+
+    for (let i = 0; i < data.notes.length; i++) {
+        let currentNote = data.notes[i];
+        let currentNoteID = currentNote.create_date + currentNote.author;
+
+        if (noteID === currentNoteID) {
+            data.notes.splice(i, 1);
+
+            // Save data object to json file.
+            let converted = JSON.stringify(data);
+            fs.writeFileSync(filename, converted, "utf8");
+
+            let dataToSend = {
+                deleteStatus: 0
+            }
+
+            res.send(dataToSend);
+
+            return; // stops the whole function, including the loop.
+            //break; // stops the whole loop.
+        } else {
+            continue; // goes to the next loop.
+        }
+    }
+
+    let dataToSend = {
+        deleteStatus: 1
+    }
+
+    res.send(dataToSend);
+});
+
+
+// Route for marking a note complete.
+
+// Route for reading all notes.
+// http://localhost:3000/readNotes
+app.post("/readNotes", (req, res) => {
+    res.send(data);
 });
