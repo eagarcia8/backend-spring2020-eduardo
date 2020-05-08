@@ -35,6 +35,13 @@
             console.log(dataToGet);
         });
 
+        $.post("http://localhost:3000/readNotes", {}, (dataToGet) => {
+
+          let allNotesArray = dataToGet.notes;
+
+          console.log(allNotesArray);
+        });
+
       });
   </script>
 </body>

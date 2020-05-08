@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 // We use FS so we can read/write files.
 const fs = require("fs");
-const _ = require("lodash");
+
 const filename = "history.json";
 let tempAgeObject = {
     "historyOfSubmissions": []

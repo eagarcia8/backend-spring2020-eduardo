@@ -1,3 +1,5 @@
+The /newNote Route allows the front end to submit a note to save. In return the server will tell us if the note was saved or not.
+
 Object to recieve from front-end for /newNote
 {
 	note: String (The note text to save)
@@ -9,6 +11,8 @@ Object to send to front-end for /newNote
 	saveStatus: Number (0 for saved, 1 for error)
 }
 
+The /readNotes Route allows the front end to get all notes saved on the back-end. We just need to send an empty object, and expect an object with all the notes in it.
+
 Object to recieve from front-end for /readNotes
 {
 }
@@ -17,6 +21,10 @@ Object to send to front-end for /readNotes
 {
 	notes: Array
 }
+
+
+The /deleteNote Route allows the front end to request a note to be deleted by sending the identifying information of that note, it should get back an object that says that the note was successfully deleted or not.
+
 
 Object to recieve from front-end for /deleteNote
 {
