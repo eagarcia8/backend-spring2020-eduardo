@@ -37,9 +37,33 @@ Object to send to front-end for /deleteNote
 	deleteStatus: Number (0 for successfully deleted, 1 for not found, 2 for found but not deleted)
 }
 
+The /updateNote Route allows the front-end to send information to the back-end to change the note string of a specific note.
+
+Object to send to the back-end for /updateNote
+{
+	updated_note: String
+	create_date: Number,
+	author: String
+}
+
+Object to send to the front-end for /updateNote
+{
+	updatedStatus: Number (0 if found and updated, 1 if not found, 2 if found not updated)
+}
 
 
+The /markComplete route sets a specific note to completed status, it should return confirmation of the request.
 
+Object to send to back-end for /markComplete
+{
+	create_date: Number,
+	author: String
+}
+
+Object to send from back-end for /markComplete
+{
+	markedComplete: Number (0 if successfully marked, 1 if not found, and 2 if found but not marked)
+}
 
 
 

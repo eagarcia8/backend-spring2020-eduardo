@@ -27,20 +27,28 @@
       $(document).ready(() => {
 
         let objectToSend = {
-            note: "Do something.",
-            author: "Nick"
-        }
+            author: "Nick",
+            create_date: 1588868606117
+        };
+
+        $.post("http://localhost:3000/markComplete", objectToSend, (dataToGet) => {
+          console.log(`Server says: ${dataToGet.markedComplete}`);
+        });
+
+        // $.post("http://localhost:3000/updateNote", objectToSend, (dataToGet) => {
+        //   console.log(`Server says: ${dataToGet.updatedStatus}`);
+        // });
           
-        $.post("http://localhost:3000/newNote", objectToSend, (dataToGet) => {
-            console.log(dataToGet);
-        });
+        // $.post("http://localhost:3000/newNote", objectToSend, (dataToGet) => {
+        //     console.log(dataToGet);
+        // });
 
-        $.post("http://localhost:3000/readNotes", {}, (dataToGet) => {
+        // $.post("http://localhost:3000/readNotes", {}, (dataToGet) => {
 
-          let allNotesArray = dataToGet.notes;
+        //   let allNotesArray = dataToGet.notes;
 
-          console.log(allNotesArray);
-        });
+        //   console.log(allNotesArray);
+        // });
 
       });
   </script>

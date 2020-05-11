@@ -109,6 +109,42 @@ app.post("/deleteNote", (req, res) => {
     res.send(dataToSend);
 });
 
+app.post("/updateNote", (req, res) => {
+    let noteToUpdate = req.body;
+
+    const noteToUpdateID = req.body.create_date + req.body.author;
+    console.log(noteToUpdate);
+
+    for (let i = 0; i < data.notes.length; i++) {
+        let currentNote = data.notes[i];
+        console.log(i + ": " + currentNote, data.notes[i]);
+        const currentNoteID = currentNote.create_date + currentNote.author;
+
+        if (noteToUpdateID === currentNoteID) {
+            currentNote.note = noteToUpdate.updated_note;
+
+            // Save data object to json file.
+            const converted = JSON.stringify(data);
+            fs.writeFileSync(filename, converted, "utf8");
+
+            const dataToSend = {
+                updatedStatus: 0
+            };
+            
+            res.send(dataToSend);
+
+            return;
+        } else {
+            continue;
+        }
+    }
+
+    const dataToSend = {
+        updateStatus: 1
+    }
+
+    res.send(dataToSend);
+});
 
 // Route for marking a note complete.
 
@@ -116,4 +152,55 @@ app.post("/deleteNote", (req, res) => {
 // http://localhost:3000/readNotes
 app.post("/readNotes", (req, res) => {
     res.send(data);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.post("/markComplete", (req, res) => {
+    let noteToComplete = req.body;
+
+    // Combine the create date number and author to create a unique "id".
+    let noteID = noteToComplete.create_date + noteToComplete.author;
+
+    for (let i = 0; i < data.notes.length; i++) {
+        let currentNote = data.notes[i];
+        let currentNoteID = currentNote.create_date + currentNote.author;
+
+        if (noteID === currentNoteID) {
+            data.notes[i].completed_status = true;
+
+            // Save data object to json file.
+            let converted = JSON.stringify(data);
+            fs.writeFileSync(filename, converted, "utf8");
+
+            let dataToSend = {
+                markedComplete: 0
+            }
+
+            res.send(dataToSend);
+
+            return; // stops the whole function, including the loop.
+            //break; // stops the whole loop.
+        } else {
+            continue; // goes to the next loop.
+        }
+    }
+
+    let dataToSend = {
+        markedComplete: 1
+    }
+
+    res.send(dataToSend);
 });
