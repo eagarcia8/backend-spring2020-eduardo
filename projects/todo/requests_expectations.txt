@@ -1,3 +1,8 @@
+jQuery Post Request Syntax
+
+$.post(addressInString, objectToSend, callbackToRunWhenWeGetAResponse(dataWeGotFromBackend) {});
+
+
 The /newNote Route allows the front end to submit a note to save. In return the server will tell us if the note was saved or not.
 
 Object to recieve from front-end for /newNote
