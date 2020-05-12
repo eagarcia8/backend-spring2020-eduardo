@@ -5,7 +5,7 @@ $.post(addressInString, objectToSend, callbackToRunWhenWeGetAResponse(dataWeGotF
 
 The /newNote Route allows the front end to submit a note to save. In return the server will tell us if the note was saved or not.
 
-Object to recieve from front-end for /newNote
+Object to send from front-end for /newNote
 {
 	note: String (The note text to save)
 	author: Null or String (The user or owner of the note)
