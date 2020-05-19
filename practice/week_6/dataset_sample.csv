@@ -1,0 +1,40 @@
+Year,Sex,Age Group (Years),Race,Injury Mechanism,Injury Intent,Deaths,Population,Age Specific Rate,Age Specific Rate Standard Error,Age Specific Rate Lower Confidence Limit,Age Specific Rate Upper Confidence Limit,Age Adjusted Rate,Age Adjusted Rate Standard Error,Age Adjusted Rate Lower Confidence Limit,Age Adjusted Rate Upper Confidence Limit
+2016,Both sexes,All Ages,All races,All Mechanisms,All Intentions,231991,323127513,71.795496,0.1490602,71.503338,72.087654,68.982236,0.1460097,68.696057,69.268415
+2015,Both sexes,All Ages,All races,All Mechanisms,All Intentions,214008,321418820,66.582287,0.1439275,66.300189,66.864384,63.866114,0.140507,63.59072,64.141508
+2014,Both sexes,All Ages,All races,All Mechanisms,All Intentions,199752,318857056,62.646254,0.1401682,62.371524,62.920983,60.127242,0.136713,59.859285,60.3952
+2013,Both sexes,All Ages,All races,All Mechanisms,All Intentions,192945,316128839,61.03366,0.1389481,60.761321,61.305998,58.771709,0.1357892,58.505562,59.037856
+2012,Both sexes,All Ages,All races,All Mechanisms,All Intentions,190385,313914040,60.648769,0.1389971,60.376334,60.921203,58.696255,0.1362913,58.429124,58.963386
+2011,Both sexes,All Ages,All races,All Mechanisms,All Intentions,187464,311591917,60.163306,0.1389545,59.890956,60.435657,58.42055,0.1365192,58.152972,58.688127
+2010,Both sexes,All Ages,All races,All Mechanisms,All Intentions,180811,308745538,58.563114,0.1377247,58.293173,58.833054,57.112869,0.1356159,56.847062,57.378676
+2009,Both sexes,All Ages,All races,All Mechanisms,All Intentions,177154,306771529,57.747862,0.137202,57.478946,58.016778,56.5485,0.1354672,56.282984,56.814015
+2008,Both sexes,All Ages,All races,All Mechanisms,All Intentions,181226,304093966,59.595395,0.1399918,59.321011,59.869779,58.504349,0.1382951,58.233291,58.775408
+2007,Both sexes,All Ages,All races,All Mechanisms,All Intentions,182479,301231207,60.577721,0.1418099,60.299774,60.855668,59.671428,0.1403874,59.396269,59.946588
+2006,Both sexes,All Ages,All races,All Mechanisms,All Intentions,179065,298379912,60.012418,0.1418194,59.734452,60.290384,59.311439,0.1407071,59.035653,59.587225
+2005,Both sexes,All Ages,All races,All Mechanisms,All Intentions,173753,295516599,58.796359,0.1410536,58.519894,59.072824,58.302059,0.1402688,58.027132,58.576986
+2004,Both sexes,All Ages,All races,All Mechanisms,All Intentions,167184,292805298,57.097328,0.1396428,56.823628,57.371027,56.807995,0.1392392,56.535086,57.080904
+2003,Both sexes,All Ages,All races,All Mechanisms,All Intentions,164002,290107933,56.531374,0.1395934,56.257771,56.804977,56.341512,0.1393326,56.068421,56.614604
+2002,Both sexes,All Ages,All races,All Mechanisms,All Intentions,161269,287625193,56.06915,0.1396203,55.795494,56.342805,55.995342,0.1395783,55.721769,56.268916
+2001,Both sexes,All Ages,All races,All Mechanisms,All Intentions,157078,284968955,55.121092,0.1390785,54.848498,55.393686,55.081781,0.1390944,54.809156,55.354406
+2000,Both sexes,All Ages,All races,All Mechanisms,All Intentions,148209,281421906,52.664344,0.1367979,52.39622,52.932468,52.776177,0.1371815,52.507301,53.045052
+1999,Both sexes,All Ages,All races,All Mechanisms,All Intentions,148286,279040238,53.14144,0.1380013,52.870957,53.411922,53.297412,0.1385546,53.025845,53.568979
+2016,Both sexes,< 15,All races,All Mechanisms,All Intentions,5704,60975069,9.354643,0.1238618,9.1118738,9.5974121, , , , 
+2015,Both sexes,< 15,All races,All Mechanisms,All Intentions,5595,61016787,9.1696077,0.1225888,8.9293337,9.4098817, , , , 
+2014,Both sexes,< 15,All races,All Mechanisms,All Intentions,5369,61067955,8.7918451,0.1199868,8.556671,9.0270191, , , , 
+2013,Both sexes,< 15,All races,All Mechanisms,All Intentions,5501,61089123,9.0048764,0.1214107,8.7669114,9.2428413, , , , 
+2012,Both sexes,< 15,All races,All Mechanisms,All Intentions,5542,61144098,9.0638347,0.1217527,8.8251994,9.3024701, , , , 
+2011,Both sexes,< 15,All races,All Mechanisms,All Intentions,5648,61201106,9.2285914,0.1227971,8.9879091,9.4692737, , , , 
+2010,Both sexes,< 15,All races,All Mechanisms,All Intentions,5637,61227213,9.2066905,0.1226251,8.9663452,9.4470358, , , , 
+2009,Both sexes,< 15,All races,All Mechanisms,All Intentions,5834,61087581,9.5502227,0.1250346,9.3051548,9.7952905, , , , 
+2008,Both sexes,< 15,All races,All Mechanisms,All Intentions,6175,60907384,10.138344,0.1290175,9.8854696,10.391218, , , , 
+2007,Both sexes,< 15,All races,All Mechanisms,All Intentions,6534,60681615,10.767677,0.1332087,10.506588,11.028765, , , , 
+2006,Both sexes,< 15,All races,All Mechanisms,All Intentions,6530,60516709,10.790408,0.1335307,10.528688,11.052129, , , , 
+2005,Both sexes,< 15,All races,All Mechanisms,All Intentions,6694,60519046,11.060981,0.1351919,10.796005,11.325957, , , , 
+2004,Both sexes,< 15,All races,All Mechanisms,All Intentions,6890,60651802,11.359926,0.1368566,11.091687,11.628165, , , , 
+2003,Both sexes,< 15,All races,All Mechanisms,All Intentions,6734,60628650,11.10696,0.1353501,10.841674,11.372246, , , , 
+2002,Both sexes,< 15,All races,All Mechanisms,All Intentions,6880,60563030,11.360066,0.1369578,11.091629,11.628503, , , , 
+2001,Both sexes,< 15,All races,All Mechanisms,All Intentions,7056,60450257,11.672407,0.1389572,11.400051,11.944763, , , , 
+2000,Both sexes,< 15,All races,All Mechanisms,All Intentions,7236,60253375,12.009286,0.1411783,11.732576,12.285995, , , , 
+1999,Both sexes,< 15,All races,All Mechanisms,All Intentions,7365,59955378,12.284136,0.1431391,12.003583,12.564688, , , , 
+2016,Both sexes,15–24,All races,All Mechanisms,All Intentions,25367,43511027,58.300164,0.3660456,57.582714,59.017613, , , , 
+2015,Both sexes,15–24,All races,All Mechanisms,All Intentions,23271,43848216,53.071714,0.3479009,52.389829,53.7536, , , , 
+2014,Both sexes,15–24,All races,All Mechanisms,All Intentions,21534,43979821,48.963364,0.3336637,48.309384,49.617345, , , , 
