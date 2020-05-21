@@ -64,7 +64,7 @@ for (let i = 0; i < statisticArray.length; i++) {
 }
 
 // Question 1 START
-console.log("What race has the majority of the mortal injuries.");
+console.log("Q) What race has the majority of the mortal injuries?");
 
 let allInjuriesTotal = [];
 
@@ -104,7 +104,72 @@ for (let i = 1; i < allInjuriesTotal.length; i++) {
 
 }
 
-console.log("The highest deaths based on the data is " + highestDeathObject.race + " with a total of " + highestDeathObject.totalDeaths + " deaths.");
-
+console.log("A) The highest deaths between 1999-2016, based on the data, is " + highestDeathObject.race + " with a total of " + highestDeathObject.totalDeaths + " deaths.");
 
 // Question 1 END
+
+// Question 2 START
+console.log("Q) What percentage of injuries were confirmed accidents?");
+
+let accidents = 0;
+let nonAccidents = 0;
+let undetermined = 0;
+// let allIntentions = [];
+
+for (let i = 0; i < filteredStatisticArray.length; i++) {
+
+    let currentStat = filteredStatisticArray[i];
+
+    if (currentStat.intention === "Unintentional") {
+        accidents += currentStat.deaths; // shorthand, same as line 126
+    } else if (currentStat.intention === "Undetermined") {
+        undetermined = undetermined + currentStat.deaths;
+    } else {
+        nonAccidents = nonAccidents + currentStat.deaths;
+    }
+
+    // if (!allIntentions.includes(currentStat.intention)) {
+    //     allIntentions.push(currentStat.intention);
+    // }
+}
+
+let accidentPercentage = (accidents / (nonAccidents + accidents)) * 100;
+accidentPercentage = accidentPercentage.toFixed(2);
+
+console.log("A) The percentage of accidents is " + accidentPercentage + "%, ignoring undetermined deaths. (Legal intervention/war considered intentional)");
+// Question 2 END
+
+// Question 3 START
+
+console.log("Q) For males, which age group has the highest suicide rate?");
+
+let ageGroupDeathTotals = [];
+
+for (let i = 0; i < filteredStatisticArray.length; i++) {
+
+    let currentStat = filteredStatisticArray[i];
+
+    if (currentStat.sex === "Male") {
+        continue; // Excellent example of continue usage.
+    }
+
+    let createObject = true;
+    
+    for (let e = 0; e < ageGroupDeathTotals.length; e++) {
+        if (currentStat.ageGroup === ageGroupDeathTotals[e].ageGroup) {
+            ageGroupDeathTotals[e].deathTotals = ageGroupDeathTotals[e].deathTotals + currentStat.deaths;
+
+            createObject = false;
+            break;
+        }
+    }
+
+    if (createObject) {
+        ageGroupDeathTotals.push({
+            ageGroup: currentStat.ageGroup,
+            deathTotals: currentStat.deaths
+        });
+    }
+}
+
+console.log(ageGroupDeathTotals);
