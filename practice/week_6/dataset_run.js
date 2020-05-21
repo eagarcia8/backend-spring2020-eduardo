@@ -66,23 +66,30 @@ for (let i = 0; i < statisticArray.length; i++) {
 // Question 1 START
 console.log("Q) What race has the majority of the mortal injuries?");
 
+// Collection for totals.
 let allInjuriesTotal = [];
 
+// Go through each entry...
 for (let i = 0; i < filteredStatisticArray.length; i++) {
 
+
     let currentStat = filteredStatisticArray[i];
+
+    // Flag to see if we find or not find collection entry.
     let createNewObject = true;
 
+    // Go through each collection entry and see if statistic group is found.
     for (let e = 0; e < allInjuriesTotal.length; e++) {
         if (allInjuriesTotal[e].race === currentStat.race) {
             allInjuriesTotal[e].totalDeaths = allInjuriesTotal[e].totalDeaths + currentStat.deaths;
 
             createNewObject = false;
-
+            // If found, stop looking in the collection.
             break;
         }
     }
 
+    // If not found, create collection entry, and add current statistic numbers to new collection entry.
     if (createNewObject) {
         let newTotalObject = {
             race: currentStat.race,
@@ -96,6 +103,7 @@ for (let i = 0; i < filteredStatisticArray.length; i++) {
 
 let highestDeathObject = allInjuriesTotal[0];
 
+// Find collection entry with highest deaths.
 for (let i = 1; i < allInjuriesTotal.length; i++) {
 
     if (highestDeathObject.totalDeaths < allInjuriesTotal[i].totalDeaths) {
@@ -111,15 +119,18 @@ console.log("A) The highest deaths between 1999-2016, based on the data, is " + 
 // Question 2 START
 console.log("Q) What percentage of injuries were confirmed accidents?");
 
+// Counters for specific death types.
 let accidents = 0;
 let nonAccidents = 0;
 let undetermined = 0;
 // let allIntentions = [];
 
+// Go through each statistic.
 for (let i = 0; i < filteredStatisticArray.length; i++) {
 
     let currentStat = filteredStatisticArray[i];
 
+    // Add to proper counter based on intention property.
     if (currentStat.intention === "Unintentional") {
         accidents += currentStat.deaths; // shorthand, same as line 126
     } else if (currentStat.intention === "Undetermined") {
@@ -133,6 +144,7 @@ for (let i = 0; i < filteredStatisticArray.length; i++) {
     // }
 }
 
+// Find percentage of accident compared to total accidents.
 let accidentPercentage = (accidents / (nonAccidents + accidents)) * 100;
 accidentPercentage = accidentPercentage.toFixed(2);
 
@@ -145,31 +157,73 @@ console.log("Q) For males, which age group has the highest suicide rate?");
 
 let ageGroupDeathTotals = [];
 
+// Go through all statistic entries.
 for (let i = 0; i < filteredStatisticArray.length; i++) {
 
     let currentStat = filteredStatisticArray[i];
 
-    if (currentStat.sex === "Male") {
+    // Ignore all Female entries, flip to Male for Female data.
+    if (currentStat.sex === "Female") {
         continue; // Excellent example of continue usage.
     }
 
+    // Two flags, one to see if we find the collection entry. The second to mark if the statistic is a suicide entry or not.
     let createObject = true;
+    let objectIsSuicide = false;
     
+
+    // Find the collection entry that matches the statistic.
     for (let e = 0; e < ageGroupDeathTotals.length; e++) {
+
+        // if statistic is suicide, mark the flag for it.
+        if (currentStat.intention === "Suicide") {
+            objectIsSuicide = true;
+        }
+
+        // if statistic is found in collection entries...
         if (currentStat.ageGroup === ageGroupDeathTotals[e].ageGroup) {
+
+            // add to total deaths.
             ageGroupDeathTotals[e].deathTotals = ageGroupDeathTotals[e].deathTotals + currentStat.deaths;
 
+            // and if is a suicide entry, add to suicide deaths.
+            if (currentStat.intention === "Suicide") {
+                ageGroupDeathTotals[e].suicideDeaths = ageGroupDeathTotals[e].suicideDeaths + currentStat.deaths;
+            }
+
+            // If found, mark createObject as false so we dont create it.
             createObject = false;
             break;
         }
     }
 
+    // Create collection entry if not found, and suicideDeath start number will be based if the current statistic was a suicide entry.
     if (createObject) {
         ageGroupDeathTotals.push({
             ageGroup: currentStat.ageGroup,
-            deathTotals: currentStat.deaths
+            deathTotals: currentStat.deaths,
+            suicideDeaths: objectIsSuicide ? currentStat.deaths : 0 // Ternary operator, if objectIsSuicide is true then use currentStat.deaths other use 0.
         });
     }
 }
 
+// Create rate for suicide death for each collection entry.
+for (let i = 0; i < ageGroupDeathTotals.length; i++) {
+    let rate = (ageGroupDeathTotals[i].suicideDeaths / ageGroupDeathTotals[i].deathTotals) * 100;
+
+    ageGroupDeathTotals[i].rate = rate;
+}
+
 console.log(ageGroupDeathTotals);
+
+
+
+// let highestAgeDeathObject = ageGroupDeathTotals[0];
+
+// for (let i = 1; i < ageGroupDeathTotals.length; i++) {
+//     if (highestAgeDeathObject.deathTotals < ageGroupDeathTotals[i].deathTotals) {
+//         highestAgeDeathObject = ageGroupDeathTotals[i];
+//     }
+// }
+
+// console.log(highestAgeDeathObject);
